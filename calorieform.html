@@ -1,0 +1,83 @@
+<form action="calorie-calculator.html" name="calform">
+    <table id="calinputtable" width="420">
+    <tbody><tr>
+        <td width="50">Age</td>
+        <td width="370"><input type="text" name="cage" id="cage" value="25" class="inhalf" onkeyup="iptfieldCheck(this, 'r', 'pn');" fdprocessedid="cep93g"> ages 15 - 80</td>
+    </tr>
+    <tr>
+        <td>Gender</td>
+        <td><label for="csex1" class="cbcontainer"><input type="radio" name="csex" id="csex1" value="m" checked=""><span class="rbmark"></span> male</label> &nbsp; <label for="csex2" class="cbcontainer"><input type="radio" name="csex" id="csex2" value="f"><span class="rbmark"></span> female</label></td>
+    </tr>
+    </tbody></table>
+    <table width="420" id="standardheightweight" style="display: block;">
+    <tbody><tr>
+        <td width="50">Height</td>
+        <td width="370">
+            <table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td>
+                <input type="text" name="cheightfeet" id="cheightfeet" value="5" class="inhalf inuifoot" onkeyup="iptfieldCheck(this, '', 'pzn');" fdprocessedid="99evb"><span class="inuifootspan">feet</span>
+            </td><td>&nbsp;</td><td>
+                <input type="text" name="cheightinch" id="cheightinch" value="10" class="inhalf inuiinch" onkeyup="iptfieldCheck(this, '', 'pzn');" fdprocessedid="yzq04o"><span class="inuiinchspan">inches</span>
+            </td></tr></tbody></table>
+        </td>
+    </tr>
+    <tr>
+        <td>Weight</td>
+        <td><input type="text" name="cpound" id="cpound" value="165" class="infull inuipound" onkeyup="iptfieldCheck(this, 'r', 'pn');" fdprocessedid="zcxnvq"><span class="inuipoundspan">pounds</span></td>
+    </tr>
+    </tbody></table>
+    <table width="420" id="metricheightweight" style="display: none;">
+    <tbody><tr>
+        <td width="50">Height</td>
+        <td width="370"><input type="text" name="cheightmeter" id="cheightmeter" value="180" class="infull inuick" onkeyup="iptfieldCheck(this, 'r', 'pn');"><span class="inuickspan">cm</span></td>
+    </tr>
+    <tr id="metricweight">
+        <td>Weight</td>
+        <td><input type="text" name="ckg" id="ckg" value="65" class="infull inuick" onkeyup="iptfieldCheck(this, 'r', 'pn');"><span class="inuickspan">kg</span></td>
+    </tr>
+    </tbody></table>
+    <table width="500">
+    <tbody><tr>
+        <td width="50">Activity</td>
+        <td width="450">
+            <select id="cactivity" name="cactivity" fdprocessedid="0uveqn">
+                <option value="1">Basal Metabolic Rate (BMR)</option>
+                <option value="1.2">Sedentary: little or no exercise</option>
+                <option value="1.375">Light: exercise 1-3 times/week</option>
+                <option value="1.465" selected="">Moderate: exercise 4-5 times/week</option>
+                <option value="1.55">Active: daily exercise or intense exercise 3-4 times/week</option>
+                <option value="1.725">Very Active: intense exercise 6-7 times/week</option>
+                <option value="1.9">Extra Active: very intense exercise daily, or physical job</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td width="50">&nbsp;</td>
+        <td width="450">
+            <div id="ccsettingtitle" style="margin: 10px 0px;"><b><a href="#" onclick="return cshmoreoption(0);">- Settings</a></b></div>
+            <div id="ccsettingcontent" style="display: block;">
+                <input type="hidden" name="cmop" id="cmoreoption" value="1">
+                <div><b>Results unit:</b></div>
+                <div>
+                    <label for="coutunit1" class="cbcontainer"><input type="radio" name="coutunit" id="coutunit1" value="c" checked=""><span class="rbmark"></span> Calories</label> &nbsp;
+                    <label for="coutunit2" class="cbcontainer"><input type="radio" name="coutunit" id="coutunit2" value="j"><span class="rbmark"></span> Kilojoules</label>
+                </div>
+    
+                <div style="padding-top:15px;"><b>BMR estimation formula:</b> <a href="#reference"><img class="ttimg" src="/img/svg/help.svg"></a></div>
+                <div>
+                    <div><label for="cformula1" class="cbcontainer"><input type="radio" name="cformula" id="cformula1" value="m" checked=""><span class="rbmark"></span> Mifflin St Jeor</label></div>
+                    <div><label for="cformula3" class="cbcontainer"><input type="radio" name="cformula" id="cformula3" value="h"><span class="rbmark"></span> Revised Harris-Benedict</label></div>
+                    <div><label for="cformula2" class="cbcontainer"><input type="radio" name="cformula" id="cformula2" value="k"><span class="rbmark"></span> Katch-McArdle</label> &nbsp; <a href="/body-fat-calculator.html">Body Fat:</a> <input type="text" name="cfatpct" value="20" class="in4char inpct" onkeyup="iptfieldCheck(this, '', 'pn');" fdprocessedid="ug9zmd"></div>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td width="50">&nbsp;</td>
+        <td width="450">
+            <input name="printit" value="0" type="hidden">
+            <input type="hidden" name="ctype" id="ctype" value="standard">
+            <input type="submit" name="x" value="Calculate" fdprocessedid="16xb94">
+            <input type="button" value="Clear" onclick="clearForm(document.calform);" fdprocessedid="s5ou8o">
+        </td>
+    </tr>
+    </tbody></table></form>
