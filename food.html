@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Recipe Calorie Checker</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #result { margin-top: 20px; }
+        img { max-width: 300px; max-height: 300px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Global Recipe Calorie Checker</h1>
+    <form id="recipeForm">
+        <input type="text" id="recipeName" placeholder="Enter recipe name" required>
+
+        <label for="cuisine">Select Cuisine (Optional):</label>
+        <select id="cuisine">
+            <option value="">All</option>
+            <option value="Indian">Indian</option>
+            <option value="Italian">Italian</option>
+            <option value="Chinese">Chinese</option>
+            <option value="Mexican">Mexican</option>
+            <option value="French">French</option>
+            <option value="American">American</option>
+            <!-- Add more cuisines as needed -->
+        </select>
+
+        <button type="submit">Check Calories</button>
+    </form>
+
+    <div id="result"></div>
+
+    <!-- Link to your JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
