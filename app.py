@@ -1,13 +1,49 @@
 from flask import Flask, render_template, request, jsonify
 import requests
-from creds import FOOD_API_KEY
+from creds import FOOD_API_KEY, API_KEY
+from req import get_calorie_results
+from gen import generate_diet_plan
+import markdown
 
 app = Flask(__name__)
 
-
 @app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/calculate', methods=['POST'])
+def calculate():
+    try:
+        # Get form data
+        age = request.form.get('age')
+        sex = request.form.get('sex')
+        height_feet = request.form.get('height_feet')
+        height_inch = request.form.get('height_inch')
+        weight_pounds = request.form.get('weight_pounds')
+        activity_level = request.form.get('activity_level')
+        body_fat_percentage = request.form.get('body_fat_percentage')
+
+        # Fetch calorie results
+        res = get_calorie_results(age, sex, height_feet, height_inch, weight_pounds, activity_level, body_fat_percentage)
+
+        # Generate the diet plan using the Generative AI model
+        diet_plan_markdown = generate_diet_plan()
+
+        # Convert the diet plan Markdown to HTML
+        diet_plan_html = markdown.markdown(diet_plan_markdown)
+
+        # Return the result as JSON including the diet plan in HTML
+        return jsonify({
+            'calories_result': res,
+            'diet_plan_html': diet_plan_html
+        })
+
+    except Exception as e:
+        return jsonify({'error': str(e)})
+
+@app.route('/food')
 def home():
-    return render_template('index.html')  # Assumes you have an HTML file named 'index.html'
+    return render_template('food.html')  # Assumes you have an HTML file named 'index.html'
 
 @app.route('/get_recipe', methods=['POST'])
 def get_recipe():
