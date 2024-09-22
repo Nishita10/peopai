@@ -11,6 +11,10 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/diet')
+def diet():
+    return render_template('diet.html')
+
 @app.route('/calculate', methods=['POST'])
 def calculate():
     try:

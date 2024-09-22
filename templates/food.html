@@ -1,44 +1,55 @@
-<form id="recipeForm" method="POST" action="/get_recipe">
-    <label for="recipeName">Recipe Name:</label>
-    <input type="text" id="recipeName" name="recipeName" required>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calorie Calculator</title>
+    </head>
+    <body>
+        <h1>Calorie Calculator</h1>
+        <form id="recipeForm" method="POST" action="/get_recipe">
+            <label for="recipeName">Recipe Name:</label>
+            <input type="text" id="recipeName" name="recipeName" required>
+            
+            <label for="cuisine">Cuisine:</label>
+            <select id="cuisine" name="cuisine">
+                <option value="">Any</option>
+                <option value="Italian">Italian</option>
+                <option value="Mexican">Mexican</option>
+                <!-- Add more cuisines as needed -->
+            </select>
+            
+            <button type="submit">Search</button>
+        </form>
+        
+        <div id="result"></div>
+    </body>
     
-    <label for="cuisine">Cuisine:</label>
-    <select id="cuisine" name="cuisine">
-        <option value="">Any</option>
-        <option value="Italian">Italian</option>
-        <option value="Mexican">Mexican</option>
-        <!-- Add more cuisines as needed -->
-    </select>
-    
-    <button type="submit">Search</button>
-</form>
-
-<div id="result"></div>
-
-<script>
-    document.getElementById('recipeForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        fetch('/get_recipe', {
-            method: 'POST',
-            body: new FormData(this),
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.error) {
-                document.getElementById('result').innerHTML = `<p>${data.error}</p>`;
-            } else {
-                document.getElementById('result').innerHTML = `
-                    <p><strong>Recipe:</strong> ${data.recipeName}</p>
-                    <p><strong>Calories:</strong> ${data.calories}</p>
-                    <p><strong>Fat:</strong> ${data.fat}</p>
-                    <p><strong>Carbs:</strong> ${data.carbs}</p>
-                    <p><strong>Protein:</strong> ${data.protein}</p>
-                    <img src="${data.image}" alt="${data.recipeName} image">
-                `;
-            }
-        })
-        .catch(error => {
-            document.getElementById('result').innerHTML = `<p>Error fetching data. Please try again.</p>`;
+    <script>
+        document.getElementById('recipeForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            fetch('/get_recipe', {
+                method: 'POST',
+                body: new FormData(this),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    document.getElementById('result').innerHTML = `<p>${data.error}</p>`;
+                } else {
+                    document.getElementById('result').innerHTML = `
+                        <p><strong>Recipe:</strong> ${data.recipeName}</p>
+                        <p><strong>Calories:</strong> ${data.calories}</p>
+                        <p><strong>Fat:</strong> ${data.fat}</p>
+                        <p><strong>Carbs:</strong> ${data.carbs}</p>
+                        <p><strong>Protein:</strong> ${data.protein}</p>
+                        <img src="${data.image}" alt="${data.recipeName} image">
+                    `;
+                }
+            })
+            .catch(error => {
+                document.getElementById('result').innerHTML = `<p>Error fetching data. Please try again.</p>`;
+            });
         });
-    });
-</script>
+    </script>
+    
+</html>
