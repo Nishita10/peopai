@@ -1,0 +1,78 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #333; /* Set a grey background color */
+}
+
+.background {
+    background: url('sport.jpg') no-repeat right;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Shift the content to the left */
+    color: #333;
+    opacity: 0.7; /* Increase transparency of the background */
+    padding-left: 50px; /* Add padding for better alignment */
+}
+
+.content {
+    background-color: rgba(255, 255, 255, 0.4); /* Increase transparency */
+    padding: 20px 40px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 600px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.content:hover {
+    animation: bounce 0.6s;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.content h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 2.5em;
+    color: #110f0f; /* Lighter text color for better contrast */
+}
+
+.content p {
+    margin: 15px 0;
+    font-size: 1.2em;
+    color: #141313; /* Lighter text color for better readability */
+}
+
+.content button {
+    background-color: #555; /* Grey background for the button */
+    color: #fff; /* White text for the button */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.content button:hover {
+    background-color: #777; /* Slightly lighter grey on hover */
+}
+
+@media screen and (max-width: 768px) {
+    .background {
+        background-size: cover;
+        padding-left: 20px; /* Adjust padding for smaller screens */
+    }
+}
