@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet Planner</title>
+</head>
+<body>
+    <h1>Diet Planner</h1>
+    <form id="calorieForm">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" min="15" max="80" required><br>
+
+        <label for="sex">Sex:</label>
+        <select id="sex" name="sex" required>
+            <option value="m">Male</option>
+            <option value="f">Female</option>
+        </select><br>
+
+        <label for="height_feet">Height (Feet):</label>
+        <input type="number" id="height_feet" name="height_feet" required><br>
+
+        <label for="height_inch">Height (Inches):</label>
+        <input type="number" id="height_inch" name="height_inch" required><br>
+
+        <label for="weight_pounds">Weight (Pounds):</label>
+        <input type="number" id="weight_pounds" name="weight_pounds" required><br>
+
+        <label for="activity_level">Activity Level:</label>
+        <select id="activity_level" name="activity_level" required>
+            <option value="1.2">Sedentary</option>
+            <option value="1.375">Light Activity</option>
+            <option value="1.55">Moderate Activity</option>
+            <option value="1.725">Very Active</option>
+            <option value="1.9">Extra Active</option>
+        </select><br>
+
+        <label for="body_fat_percentage">Body Fat Percentage:</label>
+        <input type="number" id="body_fat_percentage" name="body_fat_percentage" required><br>
+
+        <button type="submit">Calculate</button>
+    </form>
+
+    <div id="results"></div>
+
+    <script>
+        document.getElementById('calorieForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(this);
+
+            fetch('/calculate', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    document.getElementById('results').innerHTML = `<p>Error: ${data.error}</p>`;
+                } else {
+                    let resultHTML = '<h2>Calorie Results</h2><ul>';
+                    data.calories_result.forEach(result => {
+                        resultHTML += `<li>${result.label}: ${result.calories} Calories/day (${result.percentage})</li>`;
+                    });
+                    resultHTML += '</ul>';
+
+                    resultHTML += `<h2>Sample Diet Plan</h2><div>${data.diet_plan_html}</div>`;
+                    document.getElementById('results').innerHTML = resultHTML;
+                }
+            })
+            .catch(error => {
+                document.getElementById('results').innerHTML = `<p>Error: ${error.message}</p>`;
+            });
+        });
+    </script>
+</body>
+</html>
