@@ -1,15 +1,21 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 body, html {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
     font-family: Arial, sans-serif;
-    background-color: #333; /* Set a grey background color */
 }
 
 .background {
-    background: url('static/assets/sport.jpg') no-repeat right;
+    background: url('https://static.vecteezy.com/system/resources/previews/006/849/610/non_2x/abstract-background-with-soft-gradient-color-and-dynamic-shadow-on-background-background-for-wallpaper-eps-10-free-vector.jpg') no-repeat right;
     background-size: cover;
+    background-position-x: center;
     height: 100vh;
     display: flex;
     align-items: center;
@@ -20,10 +26,12 @@ body, html {
 }
 
 .content {
-    background-color: rgba(255, 255, 255, 0.4); /* Increase transparency */
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(10px);
     padding: 20px 40px;
     border-radius: 10px;
-    text-align: center;
+    text-align: justify;
     max-width: 600px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, background-color 0.3s ease;
@@ -45,13 +53,14 @@ body, html {
 .content h1 {
     margin: 0;
     padding: 0;
-    font-size: 2.5em;
+    font-size: 2.5rem;
     color: #110f0f; /* Lighter text color for better contrast */
 }
 
 .content p {
     margin: 15px 0;
-    font-size: 1.2em;
+    font-size: 1.2rem;
+    font-weight: bold;
     color: #141313; /* Lighter text color for better readability */
 }
 
@@ -73,6 +82,10 @@ body, html {
 @media screen and (max-width: 768px) {
     .background {
         background-size: cover;
-        padding-left: 20px; /* Adjust padding for smaller screens */
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+
+    .content{
+        font-size: 0.9rem;
     }
 }

@@ -1,0 +1,42 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.navtab{
+    width: 100%;
+    background-color: black;
+}
+
+nav{
+    display: flex;
+    flex-direction: row;
+    align-items:baseline;
+    justify-content: space-between; 
+    padding: 0.5rem 0.7rem;  
+    height:fit-content;
+}
+
+.logo{
+    font-size: 2rem;
+}
+
+.logo a{
+    color: white;
+    font-weight: bolder;
+}
+
+.tabs{
+    display: flex;
+    flex-direction: row;
+    align-items:baseline;
+    justify-content: space-around;
+    gap: 10px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}

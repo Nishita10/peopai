@@ -9,11 +9,11 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', title = 'Home')
 
 @app.route('/diet')
 def diet():
-    return render_template('diet.html')
+    return render_template('diet.html', title = "Diet")
 
 @app.route('/calculate', methods=['POST'])
 def calculate():
@@ -47,7 +47,7 @@ def calculate():
 
 @app.route('/food')
 def home():
-    return render_template('food.html')  # Assumes you have an HTML file named 'index.html'
+    return render_template('food.html', title = 'Food')  # Assumes you have an HTML file named 'index.html'
 
 @app.route('/get_recipe', methods=['POST'])
 def get_recipe():
