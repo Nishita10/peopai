@@ -1,24 +1,30 @@
 {%extends "base.html" %} 
 {%block content%} 
-<head></head>
+<head>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/food.css') }}">
+</head>
 
 <body>
     <h1>Calorie Calculator</h1>
-    <form id="recipeForm" method="POST" action="/get_recipe">
-        <label for="recipeName">Recipe Name:</label>
-        <input type="text" id="recipeName" name="recipeName" required>
-
-        <label for="cuisine">Cuisine:</label>
-        <select id="cuisine" name="cuisine">
-            <option value="">Any</option>
-            <option value="Italian">Italian</option>
-            <option value="Mexican">Mexican</option>
-            <!-- Add more cuisines as needed -->
-        </select>
-
-        <button type="submit">Search</button>
-    </form>
-    <div id="result"></div>
+    <div class="container">
+        <div class = "formdiv">
+            <form id="recipeForm" method="POST" action="/get_recipe">
+                <label for="recipeName">Dish Name:</label>
+                <input type="text" id="recipeName" name="recipeName" required>
+        
+                <label for="cuisine">Cuisine:</label>
+                <select id="cuisine" name="cuisine">
+                    <option value="">Any</option>
+                    <option value="Italian">Italian</option>
+                    <option value="Mexican">Mexican</option>
+                    <!-- Add more cuisines as needed -->
+                </select>
+        
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        <div id="result"></div>
+    </div>
 </body>
 
 
