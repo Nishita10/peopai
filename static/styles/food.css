@@ -1,7 +1,8 @@
 body{
-    border: green solid 5px; 
+    /* border: green solid 5px;  */
     height: 100vh;
     position: relative;
+    background: url('https://static.vecteezy.com/system/resources/previews/006/849/610/non_2x/abstract-background-with-soft-gradient-color-and-dynamic-shadow-on-background-background-for-wallpaper-eps-10-free-vector.jpg') no-repeat right;
 }
 
 .container{
@@ -13,7 +14,7 @@ body{
     top : 30%;
     justify-content: center;
     align-items: center;
-    border: solid red 4px;
+    /* border: solid red 4px; */
     position: absolute;
 }
 
@@ -52,7 +53,7 @@ body{
 
 #result{
     padding: 2rem;
-    border: solid 4px pink;
+    /* border: solid 4px pink; */
     width: 100%;
     display: flex;
     flex-direction: row;

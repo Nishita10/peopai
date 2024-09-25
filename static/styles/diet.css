@@ -1,7 +1,8 @@
 body{
-    border: green solid 5px; 
+    /* border: green solid 5px;  */
     min-height: 100vh;
     max-height: max-content;
+    background: url('https://static.vecteezy.com/system/resources/previews/006/849/610/non_2x/abstract-background-with-soft-gradient-color-and-dynamic-shadow-on-background-background-for-wallpaper-eps-10-free-vector.jpg') repeat-y right;
     /* position: relative; */
 }
 
@@ -13,13 +14,13 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: solid red 4px;
+    /* border: solid red 4px; */
 }
 
 #calorieForm{
-    border: blue solid 4px;
+    /* border: blue solid 4px; */
     padding: 10px;
-    font-size: 1.3rem;
+    font-size: 1rem;
 }
 
 #calorieForm label{
@@ -30,7 +31,7 @@ body{
 #calorieForm input, option, select{
     width: 100%;
     align-self: flex-start;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     margin: 0.5rem 0rem 1rem;
     border: none;
     border-bottom: solid darkgray 2px;
@@ -41,7 +42,7 @@ body{
 #calorieForm button{
     margin-top: 1rem;
     padding: 5px;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
     border: solid black 2.5px;
     outline: none;
     background-color: transparent;
