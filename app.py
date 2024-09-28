@@ -52,49 +52,49 @@ def home():
 @app.route('/get_recipe', methods=['POST'])
 def get_recipe():
     recipe_name = request.form.get('recipeName')
-    # selected_cuisine = request.form.get('cuisine')
+    selected_cuisine = request.form.get('cuisine')
     
     try:
-        # # Step 1: Search for the recipe by name (with optional cuisine filter)
-        # search_url = f'https://api.spoonacular.com/recipes/complexSearch?query={recipe_name}&apiKey={FOOD_API_KEY}'
+        # Step 1: Search for the recipe by name (with optional cuisine filter)
+        search_url = f'https://api.spoonacular.com/recipes/complexSearch?query={recipe_name}&apiKey={FOOD_API_KEY}'
         
-        # # If a specific cuisine is selected, add the cuisine parameter to the URL
-        # if selected_cuisine:
-        #     search_url += f'&cuisine={selected_cuisine}'
+        # If a specific cuisine is selected, add the cuisine parameter to the URL
+        if selected_cuisine:
+            search_url += f'&cuisine={selected_cuisine}'
 
-        # search_response = requests.get(search_url)
-        # search_data = search_response.json()
+        search_response = requests.get(search_url)
+        search_data = search_response.json()
 
-        # if len(search_data['results']) == 0:
-        #     return jsonify({'error': f'No recipe found for "{recipe_name}".'})
+        if len(search_data['results']) == 0:
+            return jsonify({'error': f'No recipe found for "{recipe_name}".'})
         
-        # # Get the first recipe's ID and image URL
-        # recipe = search_data['results'][0]
-        # recipe_id = recipe['id']
-        # recipe_image = recipe['image']
+        # Get the first recipe's ID and image URL
+        recipe = search_data['results'][0]
+        recipe_id = recipe['id']
+        recipe_image = recipe['image']
 
-        # # Step 2: Get the nutritional information for the recipe
-        # nutrition_url = f'https://api.spoonacular.com/recipes/{recipe_id}/nutritionWidget.json?apiKey={FOOD_API_KEY}'
-        # nutrition_response = requests.get(nutrition_url)
-        # nutrition_data = nutrition_response.json()
+        # Step 2: Get the nutritional information for the recipe
+        nutrition_url = f'https://api.spoonacular.com/recipes/{recipe_id}/nutritionWidget.json?apiKey={FOOD_API_KEY}'
+        nutrition_response = requests.get(nutrition_url)
+        nutrition_data = nutrition_response.json()
 
-        # # Return recipe details
-        # return jsonify({
-        #     'recipeName': recipe_name,
-        #     'calories': nutrition_data['calories'],
-        #     'fat': nutrition_data['fat'],
-        #     'carbs': nutrition_data['carbs'],
-        #     'protein': nutrition_data['protein'],
-        #     'image': recipe_image
-        # })
+        # Return recipe details
         return jsonify({
             'recipeName': recipe_name,
-            'calories': '515',
-            'fat': '39g',
-            'carbs': '25g',
-            'protein': '16g',
-            'image': 'https://img.spoonacular.com/recipes/635601-312x231.jpg'
+            'calories': nutrition_data['calories'],
+            'fat': nutrition_data['fat'],
+            'carbs': nutrition_data['carbs'],
+            'protein': nutrition_data['protein'],
+            'image': recipe_image
         })
+        # return jsonify({
+        #     'recipeName': recipe_name,
+        #     'calories': '515',
+        #     'fat': '39g',
+        #     'carbs': '25g',
+        #     'protein': '16g',
+        #     'image': 'https://img.spoonacular.com/recipes/635601-312x231.jpg'
+        # })
 
     except Exception as e:
         print('Error fetching data:', e)
