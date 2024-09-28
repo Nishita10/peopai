@@ -4,61 +4,66 @@
     box-sizing: border-box;
 }
 
-body, html {
-    margin: 0;
-    padding: 0;
+body {
     width: 100%;
-    height: 100%;
+    height: 100vh;
 }
 
 .background {
     background: url('https://static.vecteezy.com/system/resources/previews/006/849/610/non_2x/abstract-background-with-soft-gradient-color-and-dynamic-shadow-on-background-background-for-wallpaper-eps-10-free-vector.jpg') no-repeat right;
     background-size: cover;
     background-position-x: center;
-    height: 100vh;
+    height: 100%;
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around; /* Shift the content to the left */
     align-items: center;
-    justify-content: flex-start; /* Shift the content to the left */
     color: #333;
-    opacity: 0.7; /* Increase transparency of the background */
-    padding-left: 50px; /* Add padding for better alignment */
+    /* border: solid red 3px; */
+    flex: 1;
+    /* gap: 1; */
 }
 
 .content {
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(10px);
+    height: 60%;
     padding: 20px 40px;
     border-radius: 10px;
     text-align: justify;
-    max-width: 600px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, background-color 0.3s ease;
+    width: 40%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: 0.3s ease-in-out;
+    align-content: center;
+    letter-spacing: 2px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
 }
 
-.content:hover {
-    animation: bounce 0.6s;
-}
+.content:hover{
+    transform: translateY(-0.7rem);
+    transition: 0.3s ease;
+    background: rgba(167, 244, 254, 0.6);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 15px 0px 15px 0px;
+    box-shadow: 5px 5px 2px rgba(32, 146, 159, 0.684);
 
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
 }
 
 .content h1 {
-    margin: 0;
-    padding: 0;
-    font-size: 2.5rem;
+    font-size: 2rem;
+    line-height: 2.5rem;
     color: #110f0f; /* Lighter text color for better contrast */
 }
 
 .content p {
     margin: 15px 0;
-    font-size: 1.2rem;
+    line-height: 1.3rem;
+    font-size: 1rem;
     font-weight: bold;
     color: #141313; /* Lighter text color for better readability */
 }
@@ -70,21 +75,88 @@ body, html {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1em;
+    font-size: 1rem;
     transition: background-color 0.3s ease;
 }
 
 .content button:hover {
-    background-color: #777; /* Slightly lighter grey on hover */
+    background-color: #e8e8e8; /* Slightly lighter grey on hover */
+    color: black;
+
 }
 
-@media screen and (max-width: 768px) {
+.sections{
+    /* border: solid 3px green; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 40%;
+    height: 60% ;
+}
+
+.food, .diet{
+    border: 0;
+    height: 45%;
+    width: 50%;
+    max-width: 75%;
+    background: rgba(225, 169, 255, 0.262);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 10px;
+    transition: transform 0.2s ease;
+    color: rgb(102, 1, 122);
+    cursor: pointer;
+    box-shadow: rgb(154,8,154) 2px 2px 5px ;
+
+}
+
+.food p , .diet p{
+    /* color: aliceblue; */
+    font-weight: 600;
+    padding: 5%;
+    text-align: left;
+    font-size: 2rem;
+    text-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-direction: column;
+}
+
+.food:hover, .diet:hover{
+    transform: translateY(-0.7rem);
+    transition: transform 0.3s ease;
+    background: rgba(167, 244, 254, 0.6);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 15px 0px 15px 0px;
+    color: darkcyan;
+    /* border: #333 3px dashed; */
+    box-shadow: darkcyan 5px 5px 1px ;
+}
+
+@media only screen and (max-width: 768px) {
     .background {
-        background-size: cover;
-        padding: 20px; /* Adjust padding for smaller screens */
+        flex-direction: column;
+        height: 200vh;
     }
 
     .content{
-        font-size: 0.9rem;
+        width: 95%;
+        height: 35%;
+    }
+
+    .sections{
+        width: 95%;
+        height: 50%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .food, .diet{
+        height: 45%;
+        width: 95%;
     }
 }

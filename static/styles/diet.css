@@ -3,7 +3,13 @@ body{
     min-height: 100vh;
     max-height: max-content;
     background: url('https://static.vecteezy.com/system/resources/previews/006/849/610/non_2x/abstract-background-with-soft-gradient-color-and-dynamic-shadow-on-background-background-for-wallpaper-eps-10-free-vector.jpg') repeat-y right;
+    background-size: cover;
     /* position: relative; */
+}
+
+body h1{
+    text-align: center;
+    padding: 2rem;
 }
 
 .container{
@@ -15,6 +21,23 @@ body{
     justify-content: center;
     align-items: center;
     /* border: solid red 4px; */
+}
+
+.formdiv{
+    /* width: 80%; */
+    padding: 0 2%;
+    border: 0;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: ease-in-out 0.2s;
+}
+
+.formdiv:hover{
+    box-shadow: 4px 4px 1px rgba(0, 0, 0, 0.2);
+    transition: ease-in-out 0.3s;
 }
 
 #calorieForm{
@@ -43,10 +66,34 @@ body{
     margin-top: 1rem;
     padding: 5px;
     font-size: 0.9rem;
-    border: solid black 2.5px;
     outline: none;
-    background-color: transparent;
-    border-radius: 10px 0px 10px 0px;  
+    border: 0;
+    background-color: rgb(86, 85, 85);
+    border-radius: 7px 2px 7px 2px;
+    color: white;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+#calorieForm button:hover{
+    background-color: whitesmoke;
+    color: black;
+    border-radius: 10px 2px 10px 2px;
+}
+
+#results{
+    margin: 3rem 0;
+    border: 0;
+    min-height: 0rem;
+    max-height: 50rem;
+    overflow-y: scroll ;
+    scrollbar-width: none;
+    font-size: 1rem;
+    text-wrap: wrap;
+    max-width: 80%;
+    background: rgba(88, 189, 189, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 15px;
 }
 
 @media screen and (max-width: 768px){
