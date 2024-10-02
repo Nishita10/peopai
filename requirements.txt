@@ -40,3 +40,4 @@ uritemplate==4.1.1
 urllib3==2.2.3
 webencodings==0.5.1
 Werkzeug==3.0.4
+gunicorn==19.7.1
