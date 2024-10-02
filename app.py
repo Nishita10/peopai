@@ -101,4 +101,4 @@ def get_recipe():
         return jsonify({'error': 'Error fetching data. Please try again.'})
 
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)
